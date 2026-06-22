@@ -17,10 +17,9 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: npm
 
       - name: Install dependencies
-        run: npm install
+        run: npm install --legacy-peer-deps
 
       - name: Setup EAS
         uses: expo/expo-github-action@v8
@@ -30,6 +29,3 @@ jobs:
 
       - name: Build APK
         run: eas build --platform android --profile preview --non-interactive
-
-      - name: Get build URL
-        run: echo "✅ Build complete! Download from https://expo.dev/accounts/[your-username]/projects/my-car-trip/builds"
